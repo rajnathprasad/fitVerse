@@ -9,6 +9,7 @@ import feedbackRouter from "./routes/feedbackRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 import tryonRouter from "./routes/tryonRoute.js";
+import mongoose from "mongoose";
 
 //App config
 const port = process.env.PORT || 4000;
