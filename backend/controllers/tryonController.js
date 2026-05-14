@@ -12,25 +12,46 @@ const tryOn = async (req, res) => {
       });
     }
     const userImage = userData.image;
-    const client = await Client.connect(process.env.HF_SPACE, {
-      headers: {
-        Authorization: `Bearer ${process.env.HF_TOKEN}`,
-      },
-    });
 
-    const result = await client.predict("/tryon", {
-      dict: {
-        background: handle_file(userImage),
-        layers: [],
-        composite: null,
-      },
-      garm_img: handle_file(productImage),
-      garment_des: "garment",
-      is_checked: true,
-      is_checked_crop: false,
-      denoise_steps: 30,
-      seed: 42,
-    });
+    const tokens = [
+      process.env.HF_TOKEN,
+      process.env.HF_TOKEN2,
+      process.env.HF_TOKEN3,
+    ].filter(Boolean);
+
+    let result = null;
+    for (const token of tokens) {
+      try {
+        const client = await Client.connect(process.env.HF_SPACE, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        result = await client.predict("/tryon", {
+          dict: {
+            background: handle_file(userImage),
+            layers: [],
+            composite: null,
+          },
+          garm_img: handle_file(productImage),
+          garment_des: "garment",
+          is_checked: true,
+          is_checked_crop: false,
+          denoise_steps: 30,
+          seed: 42,
+        });
+        break;
+      } catch (err) {
+        console.log(`Token failed, trying next...`, err.message);
+        continue;
+      }
+    }
+
+    if (!result) {
+      return res.json({
+        success: false,
+        message: "All tokens exhausted, try again later",
+      });
+    }
+
     const newTryon = new tryonModel({
       userId,
       name: userData.name,
