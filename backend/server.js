@@ -15,10 +15,16 @@ import mongoose from "mongoose";
 const port = process.env.PORT || 4000;
 const app = express();
 connectDB();
-mongoose.set('bufferCommands', false)
+
 connectCloudinary();
 
 //middlewares
+app.use(async (req, res, next) => {
+    if (mongoose.connection.readyState !== 1) {
+        await connectDB();
+    }
+    next();
+});
 app.use(express.json());
 app.use(cors())
 
