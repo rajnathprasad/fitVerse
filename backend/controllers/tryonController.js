@@ -40,7 +40,7 @@ const tryOn = async (req, res) => {
         });
         break;
       } catch (err) {
-        console.log(`Token failed, trying next...`, err.message);
+        console.log(`Token ${token.slice(0, 10)}... failed:`, err.message);
         continue;
       }
     }
