@@ -22,8 +22,8 @@ const Contact = () => {
             Patel Nagar, MP
           </p>
           <p className="text-gray-500">
-            Phone: +91-8252494XXX <br />
-            Email: admin@fitverse.com
+            Phone: +91-8252494706 <br />
+            Email: rajnathprasad.cs@gmail.com
           </p>
         </div>
       </div>

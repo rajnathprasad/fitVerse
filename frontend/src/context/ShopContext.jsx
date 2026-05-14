@@ -17,6 +17,11 @@ const ShopContextProvider = (props) => {
   const [token,setToken] = useState(localStorage.getItem('token') ?? "")
 
   const addToCart = async (itemId, size) => {
+    if (!token) {
+        toast.error("Please login to add items to cart")
+        navigate('/login')
+        return
+    }
     if (!size) {
         toast.error("Select product size");
         return;
@@ -33,7 +38,7 @@ const ShopContextProvider = (props) => {
         cartData[itemId][size]=1;
     }
     setCartitems(cartData)
-
+    toast.success("Added to cart")
     if (token) {
       try {
         await axios.post(backendUrl + '/api/cart/add',{itemId,size},{headers : {token}})
