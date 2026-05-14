@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
 const connectDB = async () => {
-    try {
-        await mongoose.connect(`${process.env.MONGODB_URI}/fitverse`);
-        console.log("DB Connected");
-    } catch (error) {
-        console.error("DB Connection Failed:", error);
-    }
+    mongoose.connection.on('connected', () => console.log("DB Connected"));
+    await mongoose.connect(`${process.env.MONGODB_URI}/fitverse`, {
+        serverSelectionTimeoutMS: 30000,
+        socketTimeoutMS: 30000,
+        maxPoolSize: 10
+    });
 };
 
 export default connectDB;

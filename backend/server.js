@@ -14,6 +14,7 @@ import tryonRouter from "./routes/tryonRoute.js";
 const port = process.env.PORT || 4000;
 const app = express();
 connectDB();
+mongoose.set('bufferCommands', false)
 connectCloudinary();
 
 //middlewares
