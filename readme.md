@@ -1,31 +1,8 @@
-# FITVERSE ✨
+# FITVERSE 💚
 
-> Redefining online fashion through innovation.
+FITVERSE is a full-stack e-commerce platform for fashion, built as a learning project to explore modern web development. It goes beyond a typical shop by integrating an AI-powered virtual try-on feature using IDM-VTON, letting users see how outfits look on them before buying. The project covers everything from user auth and cart management to payment integration and AI model inference.
 
-FITVERSE was built with a vision to redefine online fashion through innovation. We go beyond traditional shopping by introducing a smarter, more interactive way to explore clothing—right from your screen.
-
-With our virtual try-on experience, you can see how outfits look on you before making a purchase, helping you choose with confidence and eliminate guesswork.
-
-We carefully curate styles that combine quality, comfort, and modern trends—so you not only look good, but feel confident in every choice.
-
----
-
-## Our Mission
-
-Our mission at FITVERSE is to make fashion more personalized, accessible, and reliable. By blending technology with style, we aim to give every customer the confidence to shop smarter and express themselves effortlessly.
-
----
-
-## Why Choose Us
-
-**Smart Try-On Experience**
-Experience fashion in a whole new way with our virtual try-on feature. See how outfits look on you before you buy, making your choices more confident and personalized.
-
-**Effortless Shopping**
-Navigate seamlessly through our platform with a clean interface and smooth checkout process, designed to make your shopping fast, easy, and enjoyable.
-
-**Customer First Approach**
-We prioritize your satisfaction at every step—from discovery to delivery—ensuring a reliable and enjoyable shopping experience every time.
+# Site live at : https://fitverse-frontend-nine.vercel.app/
 
 ---
 
